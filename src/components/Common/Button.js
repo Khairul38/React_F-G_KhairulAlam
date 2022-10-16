@@ -5,7 +5,11 @@ const Button = ({ name, isLoading, color, ...attributes }) => {
     <button
       disabled={isLoading}
       type="submit"
-      className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-violet-600 hover:bg-violet-700"
+      className={`group relative w- flex justify-center py-2 px-6 border border-transparent text-sm font-medium rounded text-white  ${
+        color === "purple" && "bg-purple-600 hover:bg-purple-700"
+      } ${color === "green" && "bg-green-600 hover:bg-green-700"} ${
+        color === "pink" && "bg-pink-500 hover:bg-pink-600"
+      }`}
       {...attributes}
     >
       <span className="absolute left-0 inset-y-0 flex items-center pl-3"></span>
