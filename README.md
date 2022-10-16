@@ -6,7 +6,7 @@ Here you can see the live website [Live Site](https://react-f-g-khairul-alam.net
 
 <!-- HOW TO RUN -->
 
-## ![rocketIcon][rocketicon-shield] Run this branch in your local machine
+## Run this branch in your local machine
 
 Please follow the below instructions to run this branch in your local machine:
 
