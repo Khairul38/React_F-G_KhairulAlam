@@ -4,7 +4,7 @@ import "./PhoneInputField.css";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import Error from "./Error";
 
-const PhoneInputField = ({ phoneNumber, onChange, error, setError }) => {
+const PhoneInputField = ({ phoneNumber, onChange, error, setError,disabled }) => {
   return (
     <>
       <label className="block text-base font-bold text-gray-700 mb-2">
@@ -25,6 +25,7 @@ const PhoneInputField = ({ phoneNumber, onChange, error, setError }) => {
             onChange("", "phone");
           }
         }}
+        disabled={disabled}
       />
       {phoneNumber && !isValidPhoneNumber(phoneNumber) && (
         <div className="mt-2">

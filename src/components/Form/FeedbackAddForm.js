@@ -34,6 +34,7 @@ const FeedbackAddForm = ({ handleOnChange, formData, error, setError }) => {
             onChange={handleOnChange}
             error={error}
             setError={setError}
+            disabled={false}
           />
         </div>
       </div>

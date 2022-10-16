@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Button from "../components/Common/Button";
 import FeedbackSuccessModal from "../components/Common/Modals/FeedbackSuccessModal";
 import FeedbackAddForm from "../components/Form/FeedbackAddForm";
+import { v4 as uuidv4 } from "uuid";
 
 const Feedback = () => {
   const [opened, setOpened] = useState(false);
   const [error, setError] = useState(false);
   const [formData, setFormDate] = useState({
+    id: uuidv4(),
     name: "",
     email: "",
     phone: "",
@@ -18,6 +20,7 @@ const Feedback = () => {
 
   const resetForm = () => {
     setFormDate({
+      id: uuidv4(),
       name: "",
       email: "",
       phone: "",
@@ -29,21 +32,17 @@ const Feedback = () => {
   };
 
   const handleOnChange = (e, name) => {
-    console.log(typeof e);
     if (typeof e === "object") {
       const newData = { ...formData };
       newData[e.target.name] = e.target.value;
       setFormDate(newData);
     }
     if (typeof e === "string") {
-      console.log(e.toString());
       const newData = { ...formData };
       newData[name] = e;
       setFormDate(newData);
     }
   };
-
-  console.log(formData);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -52,11 +51,11 @@ const Feedback = () => {
       return;
     }
     const getData = localStorage.getItem("allFeedback");
-    const allFeedback = JSON.parse(getData);
-    if (allFeedback) {
+    const feedbackData = JSON.parse(getData);
+    if (feedbackData) {
       localStorage.setItem(
         "allFeedback",
-        JSON.stringify([...allFeedback, formData])
+        JSON.stringify([...feedbackData, formData])
       );
       resetForm();
       setOpened(true);
@@ -75,7 +74,7 @@ const Feedback = () => {
     <>
       <div className="max-w-7xl mx-auto">
         <form onSubmit={handleFormSubmit}>
-          <div className="bg-slate-100 mx-8 mt-8 mb-4 p-5">
+          <div className="bg-gray-100 mx-8 mt-8 mb-4 p-5">
             {/* Header section */}
             <header className="px-8 py-7 bg-white rounded-md">
               <h1 className="text-2xl font-bold mb-2 leading-none">

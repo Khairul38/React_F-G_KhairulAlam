@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 const Navigation = () => {
   const { pathname } = useLocation();
   return (
-    <nav className="bg-slate-100 shadow-md">
+    <nav className="bg-slate-100 shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-5 flex py-3 items-center h-16">
         <Link to="/">
           <p
