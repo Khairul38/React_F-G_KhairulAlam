@@ -8,7 +8,6 @@ const Table = ({
   checkedItems,
   setCheckedItems,
 }) => {
-  console.log(checkedItems);
 
   // Feedback filtered by (name, email, phone,serviceQuality, beverageQuality, restaurantClean,diningExperience)
   const filterBySearch = (feedback) => {

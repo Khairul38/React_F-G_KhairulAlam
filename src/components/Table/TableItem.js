@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const TableItem = ({ feedback, checkedItems, setCheckedItems }) => {
-  console.log(feedback);
   return (
     <tbody>
       <tr className="bg-white border-b border-gray-300 hover:bg-gray-50">
