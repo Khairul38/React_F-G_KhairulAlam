@@ -131,8 +131,8 @@ const Table = ({ allFeedback, search, setFilteredFeedback }) => {
           </tr>
         </thead>
 
-        {/* Feedback filtered by (name, email, phone,serviceQuality,
-        beverageQuality, restaurantClean,diningExperience) */}
+        {/* --Feedback filtered by (name, email, phone,serviceQuality,
+        beverageQuality, restaurantClean,diningExperience)-- */}
         {allFeedback.filter(filterBySearch).map((feedback, index) => (
           <tbody key={index}>
             <tr className="bg-white border-b border-gray-300 hover:bg-gray-50">
