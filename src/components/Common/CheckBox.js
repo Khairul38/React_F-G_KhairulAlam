@@ -7,7 +7,7 @@ const CheckBox = ({ title, name, value, options, onChange, ...attributes }) => {
         {title}
         <span className="text-red-500">*</span>
       </label>
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {options.map((option, index) => (
           <div key={index} className="flex items-center mt-2">
             <input

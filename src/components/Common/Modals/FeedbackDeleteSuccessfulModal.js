@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../Button";
 
-const FeedbackDeleteSuccessfulModal = ({ opened, controlModal }) => {
+const FeedbackDeleteSuccessfulModal = ({
+  opened,
+  controlModal,
+  refresh,setRefresh,
+}) => {
   return (
     opened && (
       <>
@@ -36,7 +40,10 @@ const FeedbackDeleteSuccessfulModal = ({ opened, controlModal }) => {
             <div className="flex justify-center mt-6">
               <Link to="/allFeedback">
                 <Button
-                  onClick={controlModal}
+                  onClick={() => {
+                    setRefresh(!refresh);
+                    controlModal();
+                  }}
                   name="Close"
                   color="purple"
                   w="32"

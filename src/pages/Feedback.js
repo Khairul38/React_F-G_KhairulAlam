@@ -74,7 +74,7 @@ const Feedback = () => {
     <>
       <div className="max-w-7xl mx-auto">
         <form onSubmit={handleFormSubmit}>
-          <div className="bg-gray-100 mx-8 mt-8 mb-4 p-5">
+          <div className="bg-gray-100 mx-5 mt-5 mb-4 p-5">
             {/* Header section */}
             <header className="px-8 py-7 bg-white rounded-md">
               <h1 className="text-2xl font-bold mb-2 leading-none">
