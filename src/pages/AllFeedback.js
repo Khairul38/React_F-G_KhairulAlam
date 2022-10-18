@@ -23,11 +23,13 @@ const AllFeedback = () => {
   }, [refresh]);
 
   const handleDelete = () => {
-    const remainingFeedback = allFeedback.filter(
-      (f) => !checkedItems.includes(f.id)
-    );
-    localStorage.setItem("allFeedback", JSON.stringify(remainingFeedback));
-    setOpened(true);
+    if (checkedItems.length > 0) {
+      const remainingFeedback = allFeedback.filter(
+        (f) => !checkedItems.includes(f.id)
+      );
+      localStorage.setItem("allFeedback", JSON.stringify(remainingFeedback));
+      setOpened(true);
+    }
   };
 
   const controlModal = () => {
