@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Button from "../components/Common/Button";
-import FeedbackSuccessModal from "../components/Common/Modals/FeedbackSuccessModal";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import Table from "../components/Table/Table";
 import Spinner from "../components/Common/Spinner";
+import FeedbackDeleteSuccessfulModal from "../components/Common/Modals/FeedbackDeleteSuccessfulModal";
 
 const AllFeedback = () => {
   const [opened, setOpened] = useState(false);
@@ -13,6 +13,7 @@ const AllFeedback = () => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [refresh, setRefresh] = useState(false);
+  const [checkedItems, setCheckedItems] = useState([]);
 
   useEffect(() => {
     const getData = localStorage.getItem("allFeedback");
@@ -20,6 +21,13 @@ const AllFeedback = () => {
     setAllFeedback(feedbackData);
     setLoading(false);
   }, [refresh]);
+
+  const handleDelete = () => {
+    const remainingFeedback = allFeedback.filter((f) => !checkedItems.includes(f.id));
+    localStorage.setItem("allFeedback", JSON.stringify(remainingFeedback));
+    setOpened(true);
+    setRefresh(!refresh);
+  };
 
   const controlModal = () => {
     setOpened((prevState) => !prevState);
@@ -82,15 +90,17 @@ const AllFeedback = () => {
               search={search}
               filteredFeedback={filteredFeedback}
               setFilteredFeedback={setFilteredFeedback}
+              checkedItems={checkedItems}
+              setCheckedItems={setCheckedItems}
             />
           </div>
         </div>
         <div className="mx-8 mb-8 flex justify-end">
-          <Button name="Delete" color="pink" />
+          <Button onClick={handleDelete} name="Delete" color="pink" />
         </div>
       </div>
       {/* Modal */}
-      <FeedbackSuccessModal opened={opened} controlModal={controlModal} />
+      <FeedbackDeleteSuccessfulModal opened={opened} controlModal={controlModal} />
     </>
   );
 };

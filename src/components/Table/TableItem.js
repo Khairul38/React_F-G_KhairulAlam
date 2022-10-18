@@ -1,25 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const TableItem = ({ feedback, index }) => {
+const TableItem = ({ feedback, checkedItems, setCheckedItems }) => {
+  console.log(feedback);
   return (
-    <tbody key={index}>
+    <tbody>
       <tr className="bg-white border-b border-gray-300 hover:bg-gray-50">
         <td className="p-4 w-4 border-r border-gray-300">
           <div className="flex items-center">
             <input
               type="checkbox"
-              // name={name}
-              // checked={checked}
-              // required={options.includes(value) ? false : true}
+              checked={checkedItems.includes(feedback.id)}
               className="h-4 w-4 border-2 border-gray-500 rounded-sm text-purple-600 focus:ring-transparent cursor-pointer"
-              // onChange={(e) => {
-              //   if (e.target.checked) {
-              //     onChange(option, name);
-              //   } else {
-              //     onChange("", name);
-              //   }
-              // }}
+              onChange={(e) => {
+                if (e.target.checked) {
+                  setCheckedItems([...checkedItems, feedback.id]);
+                } else {
+                  setCheckedItems(
+                    checkedItems.filter((i) => i !== feedback.id)
+                  );
+                }
+              }}
             />
             <label htmlFor="checkbox-table-search-1" className="sr-only">
               checkbox

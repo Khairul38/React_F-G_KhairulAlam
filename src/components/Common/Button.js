@@ -1,9 +1,8 @@
 import React from "react";
 
-const Button = ({ name, isLoading, color,w, ...attributes }) => {
+const Button = ({ name, color,w, ...attributes }) => {
   return (
     <button
-      disabled={isLoading}
       type="submit"
       className={`group relative w-${w} flex justify-center py-2 px-6 border border-transparent text-sm font-medium rounded text-white  ${
         color === "purple" && "bg-purple-600 hover:bg-purple-700"
