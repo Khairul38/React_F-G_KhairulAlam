@@ -17,14 +17,15 @@ const AllFeedback = () => {
     const getData = localStorage.getItem("allFeedback");
     const feedbackData = JSON.parse(getData);
     setAllFeedback(feedbackData);
-    setLoading(false)
+    setLoading(false);
   }, []);
 
   const controlModal = () => {
     setOpened((prevState) => !prevState);
   };
 
-  if (allFeedback === null) return <div className="flex justify-center my-20">No Feedback found</div>;
+  if (allFeedback === null)
+    return <div className="flex justify-center my-20">No Feedback found</div>;
   if (loading) return <Spinner />;
 
   return (
@@ -71,7 +72,7 @@ const AllFeedback = () => {
             </div>
           </header>
           {/* Feedback add form section */}
-          <div className="mt-5 bg-white rounded-md">
+          <div className="mt-5 bg-white rounded-md overflow-auto h-[65vh] scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
             <Table
               allFeedback={allFeedback}
               search={search}

@@ -29,7 +29,7 @@ const Table = ({ allFeedback, search, setFilteredFeedback }) => {
   }, [search]);
 
   return (
-    <div className="overflow-x-auto overflow-y-auto relative rounded scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
+    <div className="relative rounded">
       <table className="w-full h-full text-sm text-left text-gray-500">
         <thead className="text-xs text-gray-700 bg-violet-100 sticky top-0 z-40">
           <tr>
@@ -43,7 +43,7 @@ const Table = ({ allFeedback, search, setFilteredFeedback }) => {
                   className="h-4 w-4 border-2 border-gray-500 rounded-sm text-purple-600 focus:ring-transparent cursor-pointer"
                   onChange={(e) => {
                     if (e.target.checked) {
-                      setChecked(true)
+                      setChecked(true);
                       // onChange(option, name);
                     } else {
                       setChecked(false);
