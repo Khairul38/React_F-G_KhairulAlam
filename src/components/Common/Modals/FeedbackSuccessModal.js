@@ -1,6 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../Button";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init({
+  duration: 1000,
+});
 
 const FeedbackSuccessModal = ({ opened, controlModal }) => {
   return (
@@ -13,6 +19,7 @@ const FeedbackSuccessModal = ({ opened, controlModal }) => {
         <div className="w-full h-full bg-white p-10 fixed top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2 text-center flex justify-center items-center">
           <div>
             <svg
+              data-aos="zoom-in"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"

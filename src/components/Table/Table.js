@@ -6,6 +6,7 @@ const Table = ({ allFeedback, search, setFilteredFeedback }) => {
 
   console.log(allFeedback);
 
+  // Feedback filtered by (name, email, phone,serviceQuality, beverageQuality, restaurantClean,diningExperience)
   const filterBySearch = (feedback) => {
     if (search.length === 0) {
       return true;
@@ -14,6 +15,22 @@ const Table = ({ allFeedback, search, setFilteredFeedback }) => {
     } else if (feedback.email.toLowerCase().includes(search.toLowerCase())) {
       return true;
     } else if (feedback.phone.toLowerCase().includes(search.toLowerCase())) {
+      return true;
+    } else if (
+      feedback.serviceQuality.toLowerCase().includes(search.toLowerCase())
+    ) {
+      return true;
+    } else if (
+      feedback.beverageQuality.toLowerCase().includes(search.toLowerCase())
+    ) {
+      return true;
+    } else if (
+      feedback.restaurantClean.toLowerCase().includes(search.toLowerCase())
+    ) {
+      return true;
+    } else if (
+      feedback.diningExperience.toLowerCase().includes(search.toLowerCase())
+    ) {
       return true;
     } else {
       return false;
@@ -113,6 +130,9 @@ const Table = ({ allFeedback, search, setFilteredFeedback }) => {
             </th>
           </tr>
         </thead>
+
+        {/* Feedback filtered by (name, email, phone,serviceQuality,
+        beverageQuality, restaurantClean,diningExperience) */}
         {allFeedback.filter(filterBySearch).map((feedback, index) => (
           <tbody key={index}>
             <tr className="bg-white border-b border-gray-300 hover:bg-gray-50">
