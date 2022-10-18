@@ -12,13 +12,14 @@ const AllFeedback = () => {
   const [filteredFeedback, setFilteredFeedback] = useState([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     const getData = localStorage.getItem("allFeedback");
     const feedbackData = JSON.parse(getData);
     setAllFeedback(feedbackData);
     setLoading(false);
-  }, []);
+  }, [refresh]);
 
   const controlModal = () => {
     setOpened((prevState) => !prevState);
@@ -63,7 +64,10 @@ const AllFeedback = () => {
                   color="gray"
                 />
               </div>
-              <button className="border-2 rounded px-1 py-1.5 border-gray-300 bg-white">
+              <button
+                onClick={() => setRefresh(!refresh)}
+                className="border-2 rounded px-1 py-1.5 border-gray-300 bg-white"
+              >
                 <Icon icon="ic:baseline-refresh" width="25" color="gray" />
               </button>
               <Link to="/">
@@ -72,7 +76,7 @@ const AllFeedback = () => {
             </div>
           </header>
           {/* Feedback add form section */}
-          <div className="mt-5 bg-white rounded-md overflow-auto h-[65vh] scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
+          <div className="mt-5 rounded h-[65vh]">
             <Table
               allFeedback={allFeedback}
               search={search}
